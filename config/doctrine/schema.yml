@@ -1,0 +1,14 @@
+options:
+  charset:  utf8
+  collate:  utf8_unicode_ci
+
+I18NItem:
+  tableName: i18n_item
+  actAs:
+    Timestampable: ~
+    I18n:
+      fields: [name]
+  columns:
+    id:             { type: integer(4), primary: true, autoincrement: true }
+    name:           { type: string(255) }
+    slug:           { type: string(255), notnull: true }

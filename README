@@ -1,0 +1,44 @@
+Yet another alternative setting plugin
+
+* Installation
+
+$ git submodule add git://github.com/228vit/myII18NPlugin.git plugins/myII18NPlugin
+$ git submodule init
+$ git submodule update
+$ symfony doctrine:generate-migrations-diff
+$ symfony doctrine:generate-migrate
+
+* Enable plugin in config/ProjectConfiguration.class.php
+
+{{{
+class ProjectConfiguration extends sfProjectConfiguration
+{
+  public function setup()
+  {
+    $this->enablePlugin('myII18NPlugin');
+
+}}}
+
+
+* Usage
+{{{
+  myI18N::get('site.company_name', 'Company name', 'en');
+}}}
+
+Please note, if setting does not exists, new one will be created with default value. 
+
+* Manage translations in admin
+  
+  Generate admin module
+
+  $ ./symfony doctrine:generate-admin backend I18NItem --module=i18n
+  backend.php/i18n
+
+* Edit form lib/form/doctrine/
+
+* To reduce DB queries lets dump all setting into sfConfig
+  
+Edit apps/appName/config/filters.yml
+myII18N:
+  class:    myII18NFilter
+
