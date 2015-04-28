@@ -1,4 +1,4 @@
-Yet another alternative setting plugin
+Store in DB, and edit in backend, all i18n items used on your site
 
 * Installation
 
@@ -41,4 +41,5 @@ Please note, if setting does not exists, new one will be created with default va
 Edit apps/appName/config/filters.yml
 myII18N:
   class:    myII18NFilter
+
 
